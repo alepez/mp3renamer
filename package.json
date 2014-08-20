@@ -11,18 +11,23 @@
   "bugs": {
     "url": "https://github.com/alessandro-pezzato/mp3renamer/issues"
   },
-  "licenses": [{
-    "type": "MIT",
-    "url": "https://github.com/alessandro-pezzato/mp3renamer/blob/master/LICENSE-MIT"
-  }],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/alessandro-pezzato/mp3renamer/blob/master/LICENSE-MIT"
+    }
+  ],
   "engines": {
     "node": ">= 0.8.0"
   },
   "keywords": [
-    "mp3", "id3", "rename"
+    "mp3",
+    "id3",
+    "rename"
   ],
   "dependencies": {
-    "id3js": "~1.1"
+    "id3js": "~1.1",
+    "mkdirp": "^0.5.0"
   },
   "bin": {
     "watchjs": "bin/mp3renamer.js"
