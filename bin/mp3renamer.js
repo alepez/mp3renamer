@@ -9,6 +9,14 @@ var die = function (message) {
   process.exit(1);
 };
 
+var generateNewFilePath = function (dst, tags) {
+  dst = dst.replace('$artist', tags.artist);
+  dst = dst.replace('$album', tags.album);
+  dst = dst.replace('$title', tags.title);
+  dst = dst.replace('$track', ('0' + tags.v1.track).substr(-2));
+  return dst;
+};
+
 var renameFile = function (filePath, dst, callback) {
   id3({
     file: filePath,
@@ -18,7 +26,8 @@ var renameFile = function (filePath, dst, callback) {
       // TODO: handle errors
       return;
     }
-    console.log(tags);
+    var newFilePath = generateNewFilePath(dst, tags);
+    console.log(newFilePath);
   });
 };
 
