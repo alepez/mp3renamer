@@ -1,0 +1,33 @@
+{
+  "name": "mp3renamer",
+  "description": "Rename mp3 files by id3 tags",
+  "version": "0.1.0",
+  "homepage": "https://github.com/alessandro-pezzato/mp3renamer",
+  "author": {
+    "name": "Alessandro Pezzato",
+    "email": "alessandro.pezzato@gmail.com",
+    "url": "http://pezzato.net"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/alessandro-pezzato/mp3renamer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alessandro-pezzato/mp3renamer/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/alessandro-pezzato/mp3renamer/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "keywords": [
+    "gruntplugin"
+  ],
+  "dependencies": {
+    "id3js": "^1.1.3"
+  }
+}
