@@ -23,7 +23,7 @@ var generateNewFilePath = function (dst, tags) {
   if (!artist || !album || !title || !track) {
     return null;
   }
-  track.replace(/\/.*/, '');
+  track = track.replace(/\/.*/, '');
   track = ('0' + track).substr(-2);
   dst = dst.replace('$artist', artist);
   dst = dst.replace('$album', album);
@@ -58,12 +58,23 @@ var renameFile = function (filePath, dst, callback) {
         warn(err);
         return callback(null);
       }
+      fs.rename(filePath, newFilePath, function (err) {
+        if (err) {
+          // TODO: handle errors
+          warn(err);
+          return callback(null);
+        }
+        callback(null);
+      });
     });
   });
 };
 
 var renameAllFilesInDirectory = function (dirPath, dst, callback) {
-  // TODO
+  /* TODO: Must emulate find command like this:
+   * find DIRECTORY -name '*.mp3' -exec ./bin/mp3renamer.js {} 'tmp/$artist/$album/$track - $title' \;
+   * with async support for parallel execution
+   */
   console.log(dirPath, dst);
   callback('not implemented');
 };
