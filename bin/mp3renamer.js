@@ -19,11 +19,18 @@ var generateNewFilePath = function (dst, tags) {
   var artist = tags.artist;
   var album = tags.album;
   var title = tags.title;
-  var track = String(tags.v2.track || tags.v1.track);
+  var track = tags.v2.track || tags.v1.track;
   if (!artist || !album || !title || !track) {
     return null;
   }
+  artist = artist.replace(/\0/g, '');
+  album = album.replace(/\0/g, '');
+  title = title.replace(/\0/g, '');
+  track = String(track);
+  track = track.replace(/\0/g, '');
+  /* example: if track is 5/12, remove the /12 */
   track = track.replace(/\/.*/, '');
+  /* leading zero */
   track = ('0' + track).substr(-2);
   dst = dst.replace('$artist', artist);
   dst = dst.replace('$album', album);
@@ -51,7 +58,7 @@ var renameFile = function (filePath, dst, callback) {
       return callback(null);
     }
     var newDir = path.dirname(newFilePath);
-    console.log(newFilePath);
+    // console.log(newFilePath);
     mkdirp(newDir, function (err) {
       if (err) {
         // TODO: handle errors
