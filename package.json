@@ -30,7 +30,7 @@
     "mkdirp": "^0.5.0"
   },
   "bin": {
-    "watchjs": "bin/mp3renamer.js"
+    "mp3renamer": "bin/mp3renamer.js"
   },
   "devDependencies": {},
   "scripts": {
